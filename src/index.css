@@ -1,11 +1,18 @@
 @import 'tailwindcss';
 
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
 @theme {
-  --color-accent: #2563eb;
-  --color-accent-light: #3b82f6;
-  --color-marked: #dcfce7;
-  --color-marked-border: #22c55e;
-  --color-bingo: #fbbf24;
+  --color-cyan-glow: #00d9ff;
+  --color-cyan-glow-dark: #00b8d4;
+  --color-purple-glow: #b000ff;
+  --color-purple-dark: #8800cc;
+  --color-pink-accent: #ff006e;
+  --color-space-dark: #0a0e27;
+  --color-space-card: #16213e;
+  --color-space-border: #1d2d4d;
+  
+  --font-display: "Space Mono", monospace;
 }
 
 html,
@@ -18,4 +25,87 @@ body {
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Cosmic background with starfield */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.5), 0 0 20px rgba(0, 217, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.8), 0 0 40px rgba(0, 217, 255, 0.5);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes star-fade {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes stagger-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.pop {
+  animation: pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.star {
+  animation: star-fade 3s ease-in-out infinite;
+}
+
+.stagger-1 {
+  animation: stagger-fade-in 0.6s ease-out 0.1s both;
+}
+
+.stagger-2 {
+  animation: stagger-fade-in 0.6s ease-out 0.2s both;
+}
+
+.stagger-3 {
+  animation: stagger-fade-in 0.6s ease-out 0.3s both;
+}
+
+.stagger-4 {
+  animation: stagger-fade-in 0.6s ease-out 0.4s both;
 }
